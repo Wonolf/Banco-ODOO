@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="banco_entidad_action" name="Entidades"
+                    res_model="banco.entidad"/>
+
+        <record id="banco_entidad_view_tree" model="ir.ui.view">
+            <field name="name">Lista entidades</field>
+            <field name="model">banco.entidad</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="cod"/>
+                        <field name="nombre"/>
+                        <field name="sede"/>
+                    </tree>
+            </field>
+        </record>
+
+        <record id="banco_cliente_view_form" model="ir.ui.view">
+            <field name="name">Formulario de entidades</field>
+            <field name="model">banco.entidad</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="cod"/>
+                        <field name="nombre"/>
+                        <field name="sede"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="banco_cliente_view_search" model="ir.ui.view">
+            <field name="name">Buscar entidades</field>
+            <field name="model">banco.entidad</field>
+            <field name="arch" type="xml">
+                    <search>
+                        <field name="cod"/>
+                        <field name="nombre"/>
+                        <field name="sede"/>
+                    </search>
+            </field>
+        </record>
+        <menuitem name="Banco" id="banco_entidad" sequence="10"/>
+        <menuitem name="Inicio" id="menu_inicio" parent="banco_entidad" sequence="10"/>
+        <menuitem name="Entidad" id="entidades" action="banco_entidad_action" parent="menu_inicio"
+                  sequence="10"/>
+    </data>
+</odoo>

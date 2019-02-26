@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="banco_movimientos_action" name="Movimientos"
+                    res_model="banco.movimientos"/>
+
+        <record id="banco_movimientos_view_tree" model="ir.ui.view">
+            <field name="name">Lista movimientos</field>
+            <field name="model">banco.movimientos</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="cod"/>
+                        <field name="fecha"/>
+                        <field name="cliente"/>
+                        <field name="saldo"/>
+                        <field name="cantidad"/>
+                        <button name="suma" type="object" string="Suma"/>
+                        <button name="resta" type="object" string="Resta"/>
+                        <field name="resultado"/>
+                    </tree>
+            </field>
+        </record>
+
+        <record id="banco_movimientos_view_form" model="ir.ui.view">
+            <field name="name">Formulario de movimientos</field>
+            <field name="model">banco.movimientos</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="cod"/>
+                        <field name="fecha"/>
+                        <field name="cliente"/>
+                        <field name="saldo"/>
+                        <field name="cantidad"/>
+                        <button name="suma" type="object" string="Suma"/>
+                        <button name="resta" type="object" string="Resta"/>
+                        <field name="resultado"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="banco_movimientos_view_search" model="ir.ui.view">
+            <field name="name">Buscar movimientos</field>
+            <field name="model">banco.movimientos</field>
+            <field name="arch" type="xml">
+                    <search>
+                        <field name="cod"/>
+                        <field name="fecha"/>
+                        <field name="cliente"/>
+                        <field name="saldo"/>
+                        <field name="cantidad"/>
+                        <field name="resultado"/>
+                    </search>
+            </field>
+        </record>
+        <menuitem name="Banco" id="banco_movimientos" sequence="10"/>
+        <menuitem name="Inicio" id="menu_inicio" parent="banco_movimientos" sequence="10"/>
+        <menuitem name="Movimiento" id="movimientos" action="banco_movimientos_action" parent="menu_inicio"
+                  sequence="10"/>
+    </data>
+</odoo>

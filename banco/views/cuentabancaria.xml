@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <act_window id="banco_cuentabanco_action" name="Cuentas Bancarias"
+                    res_model="banco.cuentabanco"/>
+
+        <record id="banco_cuentabanco_view_tree" model="ir.ui.view">
+            <field name="name">Lista cuentas bancarias</field>
+            <field name="model">banco.cuentabanco</field>
+            <field name="arch" type="xml">
+                    <tree>
+                        <field name="iban"/>
+                        <field name="saldo"/>
+                        <field name="cliente"/>
+                        <field name="entidad"/>
+                        <field name="fecha"/>
+                    </tree>
+            </field>
+        </record>
+
+        <record id="banco_cuentabanco_view_form" model="ir.ui.view">
+            <field name="name">Formulario de cuentas bancarias</field>
+            <field name="model">banco.cuentabanco</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="iban"/>
+                        <field name="saldo"/>
+                        <field name="cliente"/>
+                        <field name="entidad"/>
+                        <field name="fecha"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="banco_cuentabanco_view_search" model="ir.ui.view">
+            <field name="name">Buscar cuentas bancarias</field>
+            <field name="model">banco.cuentabanco</field>
+            <field name="arch" type="xml">
+                    <search>
+                        <field name="iban"/>
+                        <field name="saldo"/>
+                        <field name="cliente"/>
+                        <field name="entidad"/>
+                        <field name="fecha"/>
+                    </search>
+            </field>
+        </record>
+        <menuitem name="Banco" id="banco_cuentabanco" sequence="10"/>
+        <menuitem name="Inicio" id="menu_inicio" parent="banco_cuentabanco" sequence="10"/>
+        <menuitem name="Cuentas" id="cuentas" action="banco_cuentabanco_action" parent="menu_inicio"
+                  sequence="10"/>
+    </data>
+</odoo>
